@@ -69,7 +69,7 @@
       }
 
       .container {
-        width: min(1150px, 92%);
+        width: min(1200px, 90%);
         margin: auto;
       }
 
@@ -77,29 +77,32 @@
         position: sticky;
         top: 0;
         z-index: 100;
-        backdrop-filter: blur(14px);
-        background: rgba(7, 17, 31, 0.55);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(18px);
+        background: rgba(4, 11, 24, 0.65);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       }
 
       .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 16px 0;
+        padding: 20px 0;
       }
 
       .brand small {
         display: block;
         color: #67e8f9;
-        letter-spacing: 0.25em;
+        letter-spacing: 0.32em;
         text-transform: uppercase;
-        font-size: 11px;
-        margin-bottom: 4px;
+        font-size: 10px;
+        margin-bottom: 8px;
+        font-weight: 700;
       }
 
       .brand h1 {
-        font-size: 18px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #f8fafc;
       }
 
       .nav-links {
@@ -112,19 +115,21 @@
       .nav-links a {
         color: #cbd5e1;
         font-size: 14px;
+        font-weight: 500;
       }
 
       .btn {
         display: inline-block;
-        padding: 12px 22px;
-        border-radius: 999px;
-        font-weight: bold;
+        padding: 14px 24px;
+        border-radius: 18px;
+        font-weight: 700;
         transition: 0.25s ease;
       }
 
       .btn-primary {
-        background: #f8fafc;
+        background: linear-gradient(135deg, #f8fafc, #dbeafe);
         color: #0f172a;
+        box-shadow: 0 12px 30px rgba(255, 255, 255, 0.12);
       }
 
       .btn-primary:hover,
@@ -138,8 +143,8 @@
       }
 
       .btn-secondary {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         color: #fff;
       }
 
@@ -148,47 +153,110 @@
       }
 
       .hero {
-        min-height: 88vh;
+        min-height: 100vh;
         display: grid;
         align-items: center;
+        position: relative;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.22), transparent 30%),
+          radial-gradient(circle at 60% 20%, rgba(168, 85, 247, 0.28), transparent 26%),
+          radial-gradient(circle at 75% 35%, rgba(99, 102, 241, 0.16), transparent 24%);
+        filter: blur(10px);
+        pointer-events: none;
       }
 
       .hero-grid {
         display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 36px;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 58px;
         align-items: center;
+        position: relative;
+        z-index: 1;
       }
 
-      .badge {
-        display: inline-block;
-        padding: 8px 16px;
+      .hero-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
         border-radius: 999px;
-        background: rgba(34, 211, 238, 0.12);
-        border: 1px solid rgba(34, 211, 238, 0.25);
-        color: #a5f3fc;
-        font-size: 14px;
-        margin-bottom: 20px;
+        background: rgba(9, 15, 30, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #cbd5e1;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 22px;
+      }
+
+      .hero-kicker::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #a855f7, #22d3ee);
+        box-shadow: 0 0 14px rgba(168, 85, 247, 0.7);
       }
 
       .hero h2 {
-        font-size: clamp(2.2rem, 5vw, 4.5rem);
-        line-height: 1.12;
+        font-size: clamp(3.5rem, 8vw, 7rem);
+        line-height: 0.9;
+        letter-spacing: -0.075em;
         margin-bottom: 18px;
+        max-width: 8ch;
+        text-transform: uppercase;
       }
 
-      .hero h2 span:nth-child(1) {
+      .hero h2 .outline {
+        color: #f8fafc;
+      }
+
+      .hero-intro {
+        font-size: 18px;
+        color: #94a3b8;
+        margin-bottom: 6px;
+        font-weight: 600;
+      }
+
+      .typing-line {
+        min-height: 54px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: clamp(1.4rem, 3vw, 2.2rem);
+        color: #e2e8f0;
+        margin-bottom: 18px;
+        font-weight: 500;
+      }
+
+      .typing-text {
         color: #67e8f9;
+        font-weight: 700;
       }
 
-      .hero h2 span:nth-child(2) {
-        color: #d8b4fe;
+      .cursor {
+        display: inline-block;
+        width: 10px;
+        color: #a855f7;
+        animation: blink 0.9s infinite;
       }
 
       .hero p {
-        color: #cbd5e1;
-        font-size: 18px;
-        max-width: 700px;
+        color: #94a3b8;
+        font-size: 17px;
+        line-height: 1.85;
+        max-width: 620px;
+      }
+
+      @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
       }
 
       .tags,
@@ -199,16 +267,16 @@
       }
 
       .tags {
-        margin: 26px 0;
+        margin: 34px 0 30px;
       }
 
       .tag {
         padding: 10px 16px;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.04);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        color: #e2e8f0;
-        font-size: 14px;
+        color: #dbeafe;
+        font-size: 13px;
       }
 
       .action-row {
@@ -225,15 +293,29 @@
       .cert-card,
       .contact-card,
       .stat {
-        border-radius: 28px;
-        background: rgba(255, 255, 255, 0.06);
+        border-radius: 30px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
         border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(14px);
         transition: 0.25s ease;
       }
 
       .profile-card {
-        padding: 28px;
+        padding: 26px;
+        max-width: 390px;
+        margin-left: auto;
+        background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .profile-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(168, 85, 247, 0.14), transparent 35%);
+        pointer-events: none;
       }
 
       .profile-top {
@@ -394,6 +476,84 @@
         text-align: center;
       }
 
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .fade-up.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hero-left,
+      .hero-right {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.9s ease forwards;
+      }
+
+      .hero-right {
+        animation-delay: 0.2s;
+      }
+
+      .profile-card {
+        animation: floatCard 4s ease-in-out infinite;
+      }
+
+      .tag,
+      .btn,
+      .contact-card,
+      .service-card,
+      .cert-card,
+      .project-box,
+      .box,
+      .stat {
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      }
+
+      .tag:hover,
+      .btn:hover,
+      .contact-card:hover,
+      .service-card:hover,
+      .cert-card:hover,
+      .project-box:hover,
+      .box:hover,
+      .stat:hover {
+        transform: translateY(-6px) scale(1.01);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes floatCard {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
       @media (max-width: 900px) {
         .hero-grid,
         .about-grid,
@@ -448,14 +608,22 @@
     <main>
       <section class="hero container">
         <div class="hero-grid">
-          <div>
-            <span class="badge">Freelance Web Developer Pemula</span>
+          <div class="hero-left">
+            <div class="hero-kicker">Portfolio Website</div>
+            <div class="hero-intro">Hello, I’m</div>
             <h2>
-              Saya membuat website yang <span>rapi</span>, <span>modern</span>, dan mudah digunakan.
+              <span class="outline">Rocky</span><br />
+              <span>Fransisko</span>
             </h2>
+
+            <div class="typing-line">
+              <span>I build</span>
+              <span class="typing-text" id="typingText"></span>
+              <span class="cursor">|</span>
+            </div>
+
             <p>
-              Mahasiswa Teknik Informatika yang fokus pada pengembangan website dan sistem informasi sederhana
-              menggunakan HTML, CSS, PHP, MySQL, dan JavaScript dasar.
+              Mahasiswa Teknik Informatika yang fokus pada pengembangan website dan sistem berbasis web. Saya ingin menghadirkan tampilan yang bersih, modern, dan terasa profesional untuk kebutuhan personal, UMKM, maupun project sederhana.
             </p>
 
             <div class="tags">
@@ -466,38 +634,39 @@
               <span class="tag">JavaScript Dasar</span>
             </div>
 
+            <div style="display:flex; gap:18px; align-items:center; margin-bottom:18px; flex-wrap:wrap;">
+              <span style="font-size:13px; color:#67e8f9; letter-spacing:0.16em; text-transform:uppercase;">Available for freelance</span>
+              <span style="width:6px; height:6px; border-radius:999px; background:#334155;"></span>
+              <span style="font-size:13px; color:#94a3b8;">Web Developer Portfolio</span>
+            </div>
+
             <div class="action-row">
-              <a class="btn btn-primary" href="mailto:rfransisko26@gmail.com">Kirim Email</a>
-              <a class="btn btn-secondary" href="https://github.com/royyy42" target="_blank">Lihat GitHub</a>
+              <a class="btn btn-primary" href="#contact">Let’s Talk</a>
+              <a class="btn btn-secondary" href="https://github.com/royyy42" target="_blank">View GitHub</a>
             </div>
           </div>
 
-          <div class="profile-card">
-            <div class="profile-top">
+          <div class="profile-card hero-right">
+            <div class="profile-top" style="margin-bottom:18px; position:relative; z-index:1;">
               <div class="avatar">RF</div>
               <div>
-                <h3>Rocky Fransisko</h3>
-                <p class="muted">Web Developer • Freelancer Pemula</p>
+                <h3 style="font-size:32px; line-height:1;">Rocky Fransisko</h3>
+                <p class="muted" style="margin-top:8px;">Aspiring Web Developer</p>
               </div>
             </div>
 
-            <div class="info-item">
-              <p class="muted">Email</p>
-              <strong>rfransisko26@gmail.com</strong>
-            </div>
-            <div class="info-item">
-              <p class="muted">WhatsApp</p>
-              <strong>083839033196</strong>
-            </div>
-            <div class="info-item">
-              <p class="muted">GitHub</p>
-              <strong>github.com/royyy42</strong>
+            <div style="position:relative; z-index:1; border-radius:22px; overflow:hidden; min-height:350px; background:linear-gradient(180deg, rgba(15,23,42,0.85), rgba(30,41,59,0.65)); border:1px solid rgba(255,255,255,0.08); display:flex; align-items:flex-end; padding:22px;">
+              <div>
+                <div style="font-size:14px; color:#cbd5e1; margin-bottom:8px;">@royyy42</div>
+                <div style="font-size:13px; color:#94a3b8; margin-bottom:14px;">Open to collaborate on website projects</div>
+                <a href="#contact" style="display:inline-block; padding:12px 18px; border-radius:14px; background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.08); font-weight:600;">Contact Me</a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="container">
+      <section class="container fade-up">
         <div class="stats">
           <div class="stat">
             <p class="muted">Fokus</p>
@@ -514,7 +683,7 @@
         </div>
       </section>
 
-      <section id="about" class="container">
+      <section id="about" class="container fade-up">
         <div class="about-grid">
           <div class="box">
             <div class="section-title">
@@ -534,7 +703,7 @@
         </div>
       </section>
 
-      <section id="skills" class="container">
+      <section id="skills" class="container fade-up">
         <div class="section-title">
           <small>Skill & Layanan</small>
           <h3>Keahlian yang siap saya gunakan untuk membantu proyekmu</h3>
@@ -563,7 +732,7 @@
         </div>
       </section>
 
-      <section id="project" class="container">
+      <section id="project" class="container fade-up">
         <div class="section-title">
           <small>Proyek Utama</small>
           <h3>Sistem Kasir Restoran Berbasis Web</h3>
@@ -635,7 +804,7 @@
         </div>
       </section>
 
-      <section class="container">
+      <section class="container fade-up">
         <div class="two-grid">
           <div class="box">
             <div class="section-title">
@@ -663,7 +832,7 @@
         </div>
       </section>
 
-      <section class="container">
+      <section class="container fade-up">
         <div class="commitment">
           <div class="section-title" style="margin-bottom:10px;">
             <small>Komitmen Kerja</small>
@@ -676,7 +845,7 @@
         </div>
       </section>
 
-      <section id="contact" class="container">
+      <section id="contact" class="container fade-up">
         <div class="section-title">
           <small>Kontak</small>
           <h3>Mari bekerja sama</h3>
@@ -703,5 +872,45 @@
         <p>© 2026 Rocky Fransisko. Dibuat untuk portfolio pribadi.</p>
       </div>
     </footer>
+      <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.fade-up').forEach((el) => {
+        observer.observe(el);
+      });
+
+      const words = ['clean websites', 'modern interfaces', 'web solutions'];
+      const typingText = document.getElementById('typingText');
+      let wordIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function typeEffect() {
+        const currentWord = words[wordIndex];
+        typingText.textContent = currentWord.substring(0, charIndex);
+
+        if (!isDeleting && charIndex < currentWord.length) {
+          charIndex++;
+          setTimeout(typeEffect, 90);
+        } else if (isDeleting && charIndex > 0) {
+          charIndex--;
+          setTimeout(typeEffect, 50);
+        } else {
+          isDeleting = !isDeleting;
+          if (!isDeleting) {
+            wordIndex = (wordIndex + 1) % words.length;
+          }
+          setTimeout(typeEffect, isDeleting ? 1200 : 300);
+        }
+      }
+
+      typeEffect();
+    </script>
   </body>
 </html>
